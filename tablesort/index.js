@@ -6,10 +6,17 @@ class TableSort {
 
     init(){
         console.log(this.selector)
-        this.dataSort();
-        
+        this.event();
     }
-
+    
+    event(){
+        for(let key of this.selector){
+            document.querySelector(key).addEventListener('click',function(e){
+                var dom = e.currentTarget || e.target;
+                console.log(dom);
+            })
+        }
+    }
     dataSort(){
     }
 }
@@ -17,4 +24,4 @@ class TableSort {
 
 const thSort = ['.product','.mount','.money','.date'];
 const data = new TableSort(thSort);
-console.log(data.init());
+data.init();
